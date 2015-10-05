@@ -1,0 +1,18 @@
+<Cuentas>
+	<Cuenta id="833291">
+		<Titular>
+			<Nombre>Pepe</Nombre>
+			<Direccion>Calle la Fuente, Madrid</Direccion>
+		</Titular>
+		<Titular>
+			<Nombre>Charo (conyuge)</Nombre>
+			<Direccion>Calle Recogida, Madrid</Direccion>
+		</Titular>
+	</Cuenta>
+		<Cuenta id="732071">
+		<Titular>
+			<Nombre>Sonia</Nombre>
+			<Direccion>Avenida Brasil, Madrid</Direccion>
+		</Titular>
+	</Cuenta>
+</Cuentas>
