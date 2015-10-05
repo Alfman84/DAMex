@@ -50,6 +50,7 @@ public class Ejercicio3 {
 								sEq++;
 								cEq += cad1.length();
 							}
+							// both lines are different
 							else
 							{
 								sDif++;
@@ -57,12 +58,14 @@ public class Ejercicio3 {
 								cEq += nEqualChars(cad1, cad2);
 							}
 						}
+						// in case that the second file is finished
 						else
 						{
 							sDif++;
 							cDif += cad1.length();
 						}
 					}
+					// when first file is finished, second file is checked
 					while (sc2.hasNextLine())
 					{
 						nLines2++;
@@ -70,6 +73,7 @@ public class Ejercicio3 {
 						cad2 = sc2.nextLine();
 						cDif += cad2.length();
 					}
+					// Close the streams and show results
 					sc1.close();
 					sc2.close();
 					teclado.close();
@@ -144,7 +148,5 @@ public class Ejercicio3 {
 			res += l1-l2;
 		}
 		return res;
-	}
-	
-	
+	}	
 }
