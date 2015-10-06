@@ -15,7 +15,6 @@ public class Ejercicio5 {
 			// Pedimos el nombre del archivo a leer
 			System.out.println("Escriba el nombre del archivo de texto que quiera leer y pulse 'enter':");
 			String cad = sc.nextLine();
-			sc.close();
 		    f = new File(cad);
 		    
 		    // Comprobamos si existe

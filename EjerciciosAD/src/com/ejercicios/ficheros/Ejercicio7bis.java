@@ -30,7 +30,7 @@ public class Ejercicio7bis {
 				suma = n1+n2;
 				
 				// Creamos el escritor de datos
-				FileOutputStream fos = new FileOutputStream(f);
+				FileOutputStream fos = new FileOutputStream(f, true);
 				DataOutputStream dos = new DataOutputStream(fos);
 				
 				// Escribimos datos primitivos, en este caso enteros

@@ -1,4 +1,4 @@
-package com.ejemplos.dom;
+package com.ejercicios.dom;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,7 +23,7 @@ public class DOMaux2 {
 
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			doc = builder.parse("Libros.xml");
+			doc = builder.parse("cuentas.xml");
 			return doc;			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -45,7 +45,7 @@ public class DOMaux2 {
 			node = nodelist.item(i);
 			if (node.getNodeType()==Node.ELEMENT_NODE)
 			{
-				node_data=processBook(node);
+				procesarCuenta(node);
 				res = res + "\n" + "Publicado en: " + node_data[0];
 				res = res + "\n" + "Autor: " + node_data[1];
 				res = res + "\n" + "Título: " + node_data[2];
@@ -55,22 +55,23 @@ public class DOMaux2 {
 		return res;
 	}
 	
-	static public String[] processBook(Node node)
+	static public void procesarCuenta(Node node)
 	{
-		String data[] = new String[3];
 		Node temp = null;
-		int counter = 1;
-		data[0] = node.getAttributes().item(0).getNodeValue();
+		
 		NodeList nodelist = node.getChildNodes();
 		for (int i=0; i<nodelist.getLength(); i++)
 		{
 			temp = nodelist.item(i);
 			if (temp.getNodeType()==Node.ELEMENT_NODE)
 			{
-				data[counter] = temp.getChildNodes().item(0).getNodeValue();
-				counter++;
+				procesarTitular(temp);
 			}
 		}
-		return data;
+	}
+	
+	static public void procesarTitular(Node titular)
+	{
+		
 	}
 }
