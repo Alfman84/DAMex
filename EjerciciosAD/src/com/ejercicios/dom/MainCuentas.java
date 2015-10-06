@@ -2,16 +2,13 @@ package com.ejercicios.dom;
 
 import org.w3c.dom.Document;
 
-import com.ejemplos.dom.DOMaux;
-
 public class MainCuentas {
 
 	public static void main(String[] args) {
-		Document doc = DOMaux.openXMLfile();
+		Document doc = DOMaux2.openXMLfile();
 		if (doc!=null)
-			System.out.println(DOMaux.showDOM(doc));
+			System.out.println(DOMaux2.showDOM(doc));
 		else
 			System.out.println("error en el proceso");
 	}
-
 }

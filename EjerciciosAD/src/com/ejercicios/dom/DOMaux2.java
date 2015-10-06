@@ -1,17 +1,11 @@
 package com.ejercicios.dom;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Scanner;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 public class DOMaux2 {
 
@@ -34,7 +28,6 @@ public class DOMaux2 {
 	
 	static public String showDOM(Document doc)
 	{
-		String node_data[]=null;
 		String res="";
 		Node node;
 		
@@ -46,10 +39,6 @@ public class DOMaux2 {
 			if (node.getNodeType()==Node.ELEMENT_NODE)
 			{
 				procesarCuenta(node);
-				res = res + "\n" + "Publicado en: " + node_data[0];
-				res = res + "\n" + "Autor: " + node_data[1];
-				res = res + "\n" + "Título: " + node_data[2];
-				res = res + "------------------------------";
 			}
 		}
 		return res;
@@ -58,7 +47,8 @@ public class DOMaux2 {
 	static public void procesarCuenta(Node node)
 	{
 		Node temp = null;
-		
+		String nCuenta= node.getAttributes().item(0).getNodeValue();
+		System.out.println("Cuenta numero  " + nCuenta);
 		NodeList nodelist = node.getChildNodes();
 		for (int i=0; i<nodelist.getLength(); i++)
 		{
@@ -68,10 +58,23 @@ public class DOMaux2 {
 				procesarTitular(temp);
 			}
 		}
+		System.out.println("-----------------------------------------------------------------------------------");
 	}
 	
 	static public void procesarTitular(Node titular)
 	{
-		
+		System.out.print("\tTitular: ");
+		NodeList nodelist = titular.getChildNodes();
+		for (int i=0; i<nodelist.getLength(); i++)
+		{
+			Node temp = nodelist.item(i);
+			if (temp.getNodeType()==Node.ELEMENT_NODE)
+			{
+				String dato = temp.getNodeName();
+				String valor = temp.getChildNodes().item(0).getNodeValue();
+				System.out.print(dato + " - " + valor + " / ");
+			}
+		}
+		System.out.println("");
 	}
 }
