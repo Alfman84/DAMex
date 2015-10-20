@@ -1,18 +1,32 @@
 package com.ejemplos.dom;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Result;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.TransformerFactoryConfigurationError;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+
+//import org.apache.xml.serialize.OutputFormat;
+//import org.apache.xml.serialize.XMLSerializer;
 
 public class DOMaux {
 
@@ -51,8 +65,7 @@ public class DOMaux {
 	
 	static public String showDOM(Document doc)
 	{
-		String node_data[]=null;
-		String res="";
+		String res = "";
 		Node node;
 		
 		Node root = doc.getFirstChild();
@@ -62,32 +75,54 @@ public class DOMaux {
 			node = nodelist.item(i);
 			if (node.getNodeType()==Node.ELEMENT_NODE)
 			{
-				node_data=processBook(node);
-				res = res + "\n" + "Publicado en: " + node_data[0];
-				res = res + "\n" + "Autor: " + node_data[1];
-				res = res + "\n" + "Título: " + node_data[2];
-				res = res + "\n------------------------------";
+				res = processNode(node);
 			}
 		}
 		return res;
 	}
 	
-	static public String[] processBook(Node node)
+	static public String processNode(Node node)
 	{
-		String data[] = new String[3];
-		Node temp = null;
-		int counter = 1;
-		data[0] = node.getAttributes().item(0).getNodeValue();
-		NodeList nodelist = node.getChildNodes();
-		for (int i=0; i<nodelist.getLength(); i++)
-		{
-			temp = nodelist.item(i);
-			if (temp.getNodeType()==Node.ELEMENT_NODE)
-			{
-				data[counter] = temp.getChildNodes().item(0).getNodeValue();
-				counter++;
-			}
+		String res = "";
+		return res;
+	}
+	
+	static public void guardarDOM(Document doc, String fileName)
+	{
+		File f = new File(fileName);
+		
+		// Modo de serializar incluido en los apuntes del libro
+		// pero obsoleto
+//		OutputFormat of = new OutputFormat(doc);
+//		of.setIndenting(true);
+//		XMLSerializer serializer;
+//		try {
+//			serializer = new XMLSerializer (new FileOutputStream(f), of);
+//			serializer.serialize(doc);
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+		// Modo alternativo de serializacion del Document
+		Source source = new DOMSource(doc);
+		Result result = new StreamResult(f); //nombre del archivo
+        Transformer transformer;
+		try {
+			transformer = TransformerFactory.newInstance().newTransformer();
+	        transformer.transform(source, result);
+		} catch (TransformerConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TransformerFactoryConfigurationError e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TransformerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return data;
 	}
 }

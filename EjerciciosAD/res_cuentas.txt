@@ -1,7 +1,7 @@
-Cuenta numero 833291
-Titular: Pepe / calle la Fuente, Madrid
-Titular: Charo (conyuge) / calle Recogida, Madrid
--------------------------------------------------
-Cuenta numero 732071
-Titular: Sonia / avenida Brasil, Madrid
--------------------------------------------------
+Cuenta numero  833291
+	Titular: Nombre - Pepe / Direccion - Calle la Fuente, Madrid / 
+	Titular: Nombre - Charo (conyuge) / Direccion - Calle Recogida, Madrid / 
+-----------------------------------------------------------------------------------
+Cuenta numero  732071
+	Titular: Nombre - Sonia / Direccion - Avenida Brasil, Madrid / 
+-----------------------------------------------------------------------------------
