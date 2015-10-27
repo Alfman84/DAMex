@@ -37,7 +37,8 @@ public class ManejadorSAX extends DefaultHandler{
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
 		if(qName.equals("Libro")){
-			cadena_resultado = cadena_resultado + "\n -------------------";
+			cadena_resultado = cadena_resultado + "\n -------------------\n";
+			ultimoelement = 1;
 		}
 	}
 	
