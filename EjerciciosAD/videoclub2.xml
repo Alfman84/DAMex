@@ -1,0 +1,43 @@
+<videoclub>
+	<pelicula id="1">
+	<titulo>El extranjero</titulo>
+		<director>Berto Fernandez</director>
+<actores>
+		<actor genero="v"><nombre>Juan Estepona</nombre>			<edad>30</edad>
+			</actor>
+	<actor genero="f">
+			<nombre>Estela Cruz</nombre>
+				<edad>24</edad>
+</actor>
+		</actores>
+	</pelicula>
+<pelicula id="2">
+	<titulo>El que sabe, sabe</titulo>
+		<director>Mika Rostiff</director>
+<actores>
+		<actor genero="v">
+				<nombre>John Garcia</nombre>
+			<edad>44</edad>
+</actor>
+		<actor genero="v">
+			<nombre>Pete Garcia</nombre><edad>44</edad>
+			</actor><actor genero="f">
+				<nombre>Christine Eastwood</nombre>
+<edad>26</edad>
+		</actor>
+	</actores>
+	</pelicula>
+<pelicula id="3">
+	<titulo>Tomates rojos crudos</titulo>
+		<director>Paquito de la Fuente</director>
+		<actores>
+			<actor genero="f">
+		<nombre>Candela Ochoa</nombre>
+<edad>52</edad>
+		</actor><actor genero="f">
+			<nombre>Rocio Mercado</nombre>
+				<edad>54</edad>
+			</actor>
+		</actores>
+	</pelicula>
+</videoclub>
